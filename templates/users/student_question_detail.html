@@ -1,0 +1,25 @@
+
+{% extends 'includes/base.html' %}
+
+{% block maincontent %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Question Detail</title>
+</head>
+<body>
+    <h1>Question Details</h1>
+    <p>Question: {{ question.question }}</p>
+    {% if answered %}
+        <p>Answer: {{ answer.answer }}</p>
+    {% else %}
+        <a href="{% url 'create-answer' question.id %}"><button>Answer it!</button></a>
+    {% endif %}
+</body>
+</html>
+
+{% endblock maincontent %}
